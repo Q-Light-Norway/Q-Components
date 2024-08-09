@@ -12,6 +12,10 @@
   },
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Q-Light-Norway/Q-Components"
+  },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.7",
     "@types/node": "^22.1.0",
