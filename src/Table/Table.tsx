@@ -1,9 +1,15 @@
 import styles from "./Tables.module.scss";
 
-import React, { createContext, useState } from "react";
+import React, {
+  createContext,
+  CSSProperties,
+  ReactNode,
+  useState,
+} from "react";
 
 interface TableInterface {
-  children?: JSX.Element | JSX.Element[] | false;
+  children?: ReactNode | ReactNode[] | false;
+  style?: CSSProperties;
   size?: { min: string; max: string }[];
   defaultKey?: string;
 }
@@ -29,7 +35,12 @@ export const TableContext = createContext<TableContextInterface>(
   {} as TableContextInterface,
 );
 
-const Table = ({ children, size, defaultKey = "name" }: TableInterface) => {
+const Table = ({
+  children,
+  style,
+  size,
+  defaultKey = "name",
+}: TableInterface) => {
   const [sort, setSort] = useState<SortState>({
     key: defaultKey,
     direction: SortDirections.ASC,
@@ -56,11 +67,15 @@ const Table = ({ children, size, defaultKey = "name" }: TableInterface) => {
     <TableContext.Provider value={{ sort, setSort, setSortKey, toggleSort }}>
       <table
         className={styles.table}
-        style={{
-          gridTemplateColumns: size
-            ?.map((size) => `minmax(${size.min}, ${size.max})`)
-            .join(" "),
-        }}
+        style={
+          style
+            ? style
+            : {
+                gridTemplateColumns: size
+                  ?.map((size) => `minmax(${size.min}, ${size.max})`)
+                  .join(" "),
+              }
+        }
       >
         {children}
       </table>
