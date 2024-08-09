@@ -6,10 +6,10 @@ import React, {
   ReactNode,
   useState,
 } from "react";
+import { CommonProps } from "@src/interface";
 
-interface TableInterface {
+interface TableInterface extends CommonProps {
   children?: ReactNode | ReactNode[] | false;
-  style?: CSSProperties;
   size?: { min: string; max: string }[];
   defaultKey?: string;
 }

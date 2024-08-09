@@ -1,9 +1,10 @@
 import styles from "./Tables.module.scss";
 
-import React from "react";
+import React, { ReactNode } from "react";
+import { CommonProps } from "@src/interface";
 
-interface RowGroupInterface {
-  children?: JSX.Element | JSX.Element[] | false;
+interface RowGroupInterface extends CommonProps {
+  children?: ReactNode | ReactNode[] | false;
   isOpen?: boolean;
 }
 

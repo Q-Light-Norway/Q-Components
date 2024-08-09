@@ -1,17 +1,17 @@
 import styles from "./Tables.module.scss";
 
-import React, { useContext, useEffect, useState } from "react";
+import React, { ReactNode, useContext, useEffect, useState } from "react";
 import { SortDirections, TableContext } from "./Table";
+import { CommonProps } from "@src/interface";
 
-const TableBody = ({
-  children,
-  propKey,
-}: {
-  children?: JSX.Element | JSX.Element[] | false;
+interface TableBodyInterface extends CommonProps {
+  children?: ReactNode | ReactNode[] | false;
   propKey?: string;
-}) => {
+}
+
+const TableBody = ({ children, propKey }: TableBodyInterface) => {
   const { sort } = useContext(TableContext);
-  const [sortedChildren, setSortedChildren] = useState<JSX.Element[]>([]);
+  const [sortedChildren, setSortedChildren] = useState<ReactNode[]>([]);
 
   useEffect(() => {
     if (!children || !Array.isArray(children) || !propKey || !sort || !sort.key)

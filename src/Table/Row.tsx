@@ -1,9 +1,10 @@
 import styles from "./Tables.module.scss";
 
-import React, { MouseEvent } from "react";
+import React, { MouseEvent, ReactNode } from "react";
+import { CommonProps } from "@src/interface";
 
-interface RowInterface {
-  children?: JSX.Element | JSX.Element[] | false;
+interface RowInterface extends CommonProps {
+  children?: ReactNode | ReactNode[] | false;
   handleClick?: (e: MouseEvent<HTMLDivElement>) => void;
   header?: boolean;
   secondary?: boolean;

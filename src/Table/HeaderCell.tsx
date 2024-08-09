@@ -1,15 +1,15 @@
 import styles from "./Tables.module.scss";
 
-import React from "react";
+import React, { ReactNode } from "react";
 
 import { useContext, useState } from "react";
 import { ArrowDown, ArrowsDownUp, ArrowUp } from "@phosphor-icons/react";
 import { SortDirections, TableContext } from "./Table";
+import { CommonProps } from "@src/interface";
 
-interface RowCellInterface {
-  children?: JSX.Element | JSX.Element[] | false;
+interface RowCellInterface extends CommonProps {
+  children?: ReactNode | ReactNode[] | false;
   sortKey?: string;
-  className?: string;
   centered?: boolean;
   noSort?: boolean;
 }
@@ -17,6 +17,7 @@ interface RowCellInterface {
 const RowCell = ({
   children,
   className,
+  overrideClassName,
   sortKey,
   centered,
   noSort,
@@ -32,9 +33,15 @@ const RowCell = ({
     }
   };
 
+  const newClassName = overrideClassName
+    ? overrideClassName
+    : className
+      ? className
+      : styles.headerCell;
+
   return (
     <th
-      className={`${styles.headerCell} ${className ? className : ""} ${centered ? "centered" : ""}`}
+      className={newClassName}
       onMouseOver={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={() => handleClick()}

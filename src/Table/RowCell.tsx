@@ -1,10 +1,10 @@
 import styles from "./Tables.module.scss";
 
-import React from "react";
+import React, { ReactNode } from "react";
+import { CommonProps } from "@src/interface";
 
-interface RowCellInterface {
-  children?: JSX.Element | JSX.Element[] | false;
-  className?: string;
+interface RowCellInterface extends CommonProps {
+  children?: ReactNode | ReactNode[] | false;
   centered?: boolean;
 }
 
