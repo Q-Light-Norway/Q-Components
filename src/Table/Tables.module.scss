@@ -1,0 +1,121 @@
+@import "@styles/_variables";
+
+.table {
+  position: relative;
+  display: grid;
+  border-collapse: collapse;
+  min-width: 100%;
+  //flex: 1;
+  max-height: 70%;
+  overflow-y: auto;
+  color: $font-dark;
+
+  box-sizing: border-box;
+  * {
+    box-sizing: border-box;
+  }
+
+  grid-row-gap: 2px;
+  grid-auto-rows: 50px;
+
+  grid-template-columns:
+    minmax(10px, 60px)
+    minmax(10px, 2fr)
+    minmax(10px, 2.4fr)
+    minmax(10px, 5fr)
+    minmax(10px, 2fr)
+    minmax(10px, 2fr)
+    minmax(10px, 2fr)
+    minmax(10px, 5fr)
+    minmax(10px, 60px);
+
+  tr td {
+    color: $font;
+    background: $bg-dark;
+  }
+}
+
+.tableHead,
+.tableBody,
+.row {
+  display: contents;
+}
+
+.rowCell,
+.headerCell {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.headerCell {
+  background-color: $bg-primary;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  text-align: left;
+  font-weight: normal;
+  font-size: 1.1rem;
+}
+
+.row {
+  background: $bg-primary;
+  cursor: pointer;
+  border-bottom: 1px solid $bg-medium-light;
+  position: relative;
+
+  &:hover {
+    .rowSettings {
+      opacity: 1;
+    }
+  }
+}
+
+.rowSettings {
+  opacity: 0;
+  transition: opacity 250ms ease-in-out;
+}
+
+.rowGroupClosed {
+  opacity: 0;
+  pointer-events: none;
+  max-height: 0 !important;
+}
+
+.rowGroup {
+  max-height: 2000px;
+  position: relative;
+  transition: max-height 250ms ease, opacity 250ms ease;
+}
+
+.rowGroupTitle {
+  color: $font-dark;
+  font-weight: 400;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  transform: rotate(-90deg) translate(-100%, -100%);
+}
+
+.headerRow {
+  @extend .row;
+  background: none;
+  color: $font-dark;
+  margin-bottom: 0;
+}
+
+.secondaryHeader {
+  @extend .headerRow;
+  background: $bg-medium-light-secondary;
+  color: $font-dark;
+}
+
+.secondaryRow {
+  @extend .row;
+  background: $bg-medium;
+  color: $font-dark;
+}

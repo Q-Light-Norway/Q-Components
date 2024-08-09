@@ -1,0 +1,76 @@
+// main colours
+$light: #e6f4f9;
+$medium-light: #d6e6ec;
+$medium-light-secondary: #b3deec;
+$medium-secondary: #80c8df;
+$medium: #4db1d2;
+$medium-dark: #2d91b2;
+$dark-light: #194f60;
+$dark: #133e4c;
+$success: #00b129;
+$failure: #ea0000;
+$active: #b3ad77;
+
+// background colour
+$bg-primary: $light;
+$bg-medium-light: $medium-light;
+$bg-medium-light-secondary: $medium-light-secondary;
+$bg-medium-secondary: $medium-secondary;
+$bg-medium: $medium;
+$bg-medium-dark: $medium-dark;
+$bg-dark-light: $dark-light;
+$bg-dark: $dark;
+$bg-success: #006517;
+$bg-failure: #840000;
+$bg-active: #eee8ae;
+
+// box shadow
+$box-shadow-dark: 0 0 10px rgba(19, 62, 76, 0.1);
+
+// border default colour
+$border-default: #707070;
+
+// colour
+$font: $light;
+$font-light: white;
+$font-medium: $medium;
+$font-dark: $dark;
+$font-inactive: gray;
+$font-success: $success;
+$font-failure: $failure;
+$font-active: $active;
+
+// font weight
+$font-normal: 400;
+
+// font size
+$font-xs: 14px;
+$font-s: 17px;
+// TODO: export all font sizes from adobexds
+$font-m: 1.5rem;
+$font-h1: 35px;
+$font-h2: 30px;
+$font-h3: 1.6rem;
+$font-h4: 1.4rem;
+$font-h5: 1.2rem;
+$font-h6: 1rem;
+
+// Paddings
+$p-top: 160px;
+
+// Widths
+$w-main: 65%;
+
+// Border radius
+$border-radius: 4px;
+
+// z-index
+$z-100: 100;
+
+// media queries
+$breakpoint-mobile: 600px;
+$breakpoint-tablet: 768px;
+$breakpoint-laptop: 1024px;
+$breakpoint-desktop: 1200px;
+$breakpoint-laptopL: 1440px;
+$breakpoint-desktopL: 1600px;
