@@ -1,6 +1,6 @@
 import styles from "./Tables.module.scss";
 
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 
 import { useContext, useState } from "react";
 import { ArrowDown, ArrowsDownUp, ArrowUp } from "@phosphor-icons/react";
@@ -21,6 +21,7 @@ const RowCell = ({
   sortKey,
   centered,
   noSort,
+  ...restProps
 }: RowCellInterface) => {
   const { sort, setSortKey, toggleSort } = useContext(TableContext);
   const [isHovered, setIsHovered] = useState(false);
@@ -49,17 +50,17 @@ const RowCell = ({
       {children}
 
       {!noSort && isHovered && sort.key !== sortKey && (
-        <ArrowsDownUp size={16} weight="light" />
+        <ArrowsDownUp size={16} weight="light" {...restProps} />
       )}
       {!noSort &&
         sort.key === sortKey &&
         sort.direction === SortDirections.DESC && (
-          <ArrowUp size={16} weight="light" />
+          <ArrowUp size={16} weight="light" {...restProps} />
         )}
       {!noSort &&
         sort.key === sortKey &&
         sort.direction === SortDirections.ASC && (
-          <ArrowDown size={16} weight="light" />
+          <ArrowDown size={16} weight="light" {...restProps} />
         )}
     </th>
   );

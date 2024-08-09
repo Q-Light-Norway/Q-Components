@@ -1,6 +1,6 @@
 import styles from "./Tables.module.scss";
 
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import { CommonProps } from "@src/interface";
 
 interface RowCellInterface extends CommonProps {

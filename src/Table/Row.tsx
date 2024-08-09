@@ -1,6 +1,6 @@
 import styles from "./Tables.module.scss";
 
-import React, { MouseEvent, ReactNode } from "react";
+import { MouseEvent, ReactNode } from "react";
 import { CommonProps } from "@src/interface";
 
 interface RowInterface extends CommonProps {

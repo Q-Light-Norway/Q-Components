@@ -1,11 +1,6 @@
 import styles from "./Tables.module.scss";
 
-import React, {
-  createContext,
-  CSSProperties,
-  ReactNode,
-  useState,
-} from "react";
+import { createContext, CSSProperties, ReactNode, useState } from "react";
 import { CommonProps } from "@src/interface";
 
 interface TableInterface extends CommonProps {

@@ -1,6 +1,6 @@
 import styles from "./Tables.module.scss";
 
-import React, { ReactNode, useContext, useEffect, useState } from "react";
+import { ReactNode, useContext, useEffect, useState } from "react";
 import { SortDirections, TableContext } from "./Table";
 import { CommonProps } from "@src/interface";
 
