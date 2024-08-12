@@ -8,10 +8,11 @@ interface RowGroupInterface extends CommonProps {
   isOpen?: boolean;
 }
 
-const RowGroup = ({ children, isOpen }: RowGroupInterface) => {
+const RowGroup = ({ children, isOpen, ...restProps }: RowGroupInterface) => {
   return (
     <div
       className={`${styles.rowGroup} ${!isOpen ? styles.rowGroupClosed : ""}`}
+      {...restProps}
     >
       {children}
     </div>

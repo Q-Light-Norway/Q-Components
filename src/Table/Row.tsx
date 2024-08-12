@@ -10,7 +10,13 @@ interface RowInterface extends CommonProps {
   secondary?: boolean;
 }
 
-const Row = ({ children, handleClick, header, secondary }: RowInterface) => {
+const Row = ({
+  children,
+  handleClick,
+  header,
+  secondary,
+  ...restProps
+}: RowInterface) => {
   const getClassName = () => {
     return header && !secondary
       ? styles.headerRow
@@ -23,14 +29,14 @@ const Row = ({ children, handleClick, header, secondary }: RowInterface) => {
 
   if (header) {
     return (
-      <thead className={styles.tableHead} onClick={handleClick}>
+      <thead className={styles.tableHead} onClick={handleClick} {...restProps}>
         <tr className={getClassName()}>{children}</tr>
       </thead>
     );
   }
 
   return (
-    <tr className={getClassName()} onClick={handleClick}>
+    <tr className={getClassName()} onClick={handleClick} {...restProps}>
       {children}
     </tr>
   );

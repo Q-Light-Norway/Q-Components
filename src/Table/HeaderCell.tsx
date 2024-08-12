@@ -48,21 +48,22 @@ const RowCell = ({
       onMouseOver={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={() => handleClick()}
+      {...restProps}
     >
       {children}
 
       {!noSort && isHovered && sort.key !== sortKey && (
-        <ArrowsDownUp size={16} weight="light" {...restProps} />
+        <ArrowsDownUp size={16} weight="light" />
       )}
       {!noSort &&
         sort.key === sortKey &&
         sort.direction === SortDirections.DESC && (
-          <ArrowUp size={16} weight="light" {...restProps} />
+          <ArrowUp size={16} weight="light" />
         )}
       {!noSort &&
         sort.key === sortKey &&
         sort.direction === SortDirections.ASC && (
-          <ArrowDown size={16} weight="light" {...restProps} />
+          <ArrowDown size={16} weight="light" />
         )}
     </th>
   );

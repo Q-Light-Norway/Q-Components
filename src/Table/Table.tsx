@@ -2,7 +2,7 @@
 
 import styles from "./Tables.module.scss";
 
-import { createContext, CSSProperties, ReactNode, useState } from "react";
+import { createContext, ReactNode, useState } from "react";
 import { CommonProps } from "@src/interface";
 
 interface TableInterface extends CommonProps {
@@ -37,6 +37,7 @@ const Table = ({
   style,
   size,
   defaultKey = "name",
+  ...restProps
 }: TableInterface) => {
   const [sort, setSort] = useState<SortState>({
     key: defaultKey,
@@ -73,6 +74,7 @@ const Table = ({
                   .join(" "),
               }
         }
+        {...restProps}
       >
         {children}
       </table>

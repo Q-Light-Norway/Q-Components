@@ -8,10 +8,16 @@ interface RowCellInterface extends CommonProps {
   centered?: boolean;
 }
 
-const RowCell = ({ children, className, centered }: RowCellInterface) => {
+const RowCell = ({
+  children,
+  className,
+  centered,
+  ...restProps
+}: RowCellInterface) => {
   return (
     <td
       className={`${styles.rowCell} ${className ? className : ""} ${centered ? "centered" : ""}`}
+      {...restProps}
     >
       {children}
     </td>

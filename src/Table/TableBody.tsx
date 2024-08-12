@@ -11,7 +11,7 @@ interface TableBodyInterface extends CommonProps {
   propKey?: string;
 }
 
-const TableBody = ({ children, propKey }: TableBodyInterface) => {
+const TableBody = ({ children, propKey, ...restProps }: TableBodyInterface) => {
   const { sort } = useContext(TableContext);
   const [sortedChildren, setSortedChildren] = useState<ReactNode[]>([]);
 
@@ -32,10 +32,18 @@ const TableBody = ({ children, propKey }: TableBodyInterface) => {
   }, [sort, children]);
 
   if (!children || !Array.isArray(children) || !propKey) {
-    return <tbody className={styles.tableBody}>{children}</tbody>;
+    return (
+      <tbody className={styles.tableBody} {...restProps}>
+        {children}
+      </tbody>
+    );
   }
 
-  return <tbody className={styles.tableBody}>{sortedChildren}</tbody>;
+  return (
+    <tbody className={styles.tableBody} {...restProps}>
+      {sortedChildren}
+    </tbody>
+  );
 };
 
 export default TableBody;
