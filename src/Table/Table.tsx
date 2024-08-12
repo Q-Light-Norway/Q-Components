@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./Tables.module.scss";
 
 import { createContext, CSSProperties, ReactNode, useState } from "react";
