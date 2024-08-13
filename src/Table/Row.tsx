@@ -9,7 +9,7 @@ interface RowInterface extends CommonProps {
   header?: boolean;
   secondary?: boolean;
   href?: string;
-  sortObject?: Record<string, any>;
+  sortObject?: any;
 }
 
 const Row = ({

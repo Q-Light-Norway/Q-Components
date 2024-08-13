@@ -3,7 +3,7 @@
 import styles from "./Tables.module.scss";
 
 interface SortableProps {
-  sortObject: Record<string, any>;
+  sortObject: any;
 }
 
 import {
