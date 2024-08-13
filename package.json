@@ -1,6 +1,6 @@
 {
   "name": "@qlight/q-components",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "A collection of components for Q-Light",
   "main": "dist/q-components.cjs.js",
   "module": "dist/q-components.es.js",

@@ -8,7 +8,7 @@ import { CommonProps } from "@src/interface";
 interface TableInterface extends CommonProps {
   children?: ReactNode | ReactNode[] | false;
   size?: { min: string; max: string }[];
-  defaultKey?: string;
+  defaultSortKey?: string;
 }
 
 export enum SortDirections {
@@ -36,11 +36,11 @@ const Table = ({
   children,
   style,
   size,
-  defaultKey = "name",
+  defaultSortKey,
   ...restProps
 }: TableInterface) => {
   const [sort, setSort] = useState<SortState>({
-    key: defaultKey,
+    key: defaultSortKey || undefined,
     direction: SortDirections.ASC,
   });
 

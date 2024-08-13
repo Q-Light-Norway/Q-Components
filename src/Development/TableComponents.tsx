@@ -16,7 +16,7 @@ const rows = [
     key: "2",
     data: {
       id: 2,
-      layoutName: "Layout 2",
+      layoutName: "Layout 32",
       enabled: true,
       enablePreview: true,
       enableConfigurator: true,
@@ -64,7 +64,10 @@ const TableComponents = () => {
   };
 
   return (
-    <Table style={{ gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr 1fr" }}>
+    <Table
+      style={{ gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr 1fr" }}
+      defaultSortKey="layoutName"
+    >
       <Row header>
         <HeaderCell sortKey="id">
           <p>ID</p>

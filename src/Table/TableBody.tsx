@@ -27,6 +27,8 @@ const TableBody = ({ children, ...restProps }: TableBodyInterface) => {
   useEffect(() => {
     if (!children || !Array.isArray(children) || !sort || !sort.key) return;
 
+    console.log("isSorting", sort);
+
     const sorted = [...children].sort((a, b) => {
       if (!sort || !sort.key) {
         console.error("Sort key not defined");
@@ -63,7 +65,7 @@ const TableBody = ({ children, ...restProps }: TableBodyInterface) => {
     setSortedChildren(sorted);
   }, [sort, children]);
 
-  if (!children || !Array.isArray(children)) {
+  if (!children || !Array.isArray(children) || !sort || !sort.key) {
     return (
       <tbody className={styles.tableBody} {...restProps}>
         {children}

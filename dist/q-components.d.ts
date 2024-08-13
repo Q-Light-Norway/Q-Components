@@ -52,7 +52,7 @@ declare interface RowInterface extends CommonProps {
     sortObject?: any;
 }
 
-export declare const Table: ({ children, style, size, defaultKey, ...restProps }: TableInterface) => JSX_2.Element;
+export declare const Table: ({ children, style, size, defaultSortKey, ...restProps }: TableInterface) => JSX_2.Element;
 
 export declare const TableBody: ({ children, ...restProps }: TableBodyInterface) => JSX_2.Element;
 
@@ -66,7 +66,7 @@ declare interface TableInterface extends CommonProps {
         min: string;
         max: string;
     }[];
-    defaultKey?: string;
+    defaultSortKey?: string;
 }
 
 export { }
