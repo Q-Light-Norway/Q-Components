@@ -9,7 +9,7 @@ const rows = [
       enabled: true,
       enablePreview: true,
       enableConfigurator: true,
-      description: "This is a description",
+      description: "This is a description 1",
     },
   },
   {
@@ -20,7 +20,7 @@ const rows = [
       enabled: true,
       enablePreview: true,
       enableConfigurator: true,
-      description: "This is a description",
+      description: "This is a description 2",
     },
   },
   {
@@ -31,7 +31,7 @@ const rows = [
       enabled: true,
       enablePreview: true,
       enableConfigurator: true,
-      description: "This is a description",
+      description: "This is a description 3",
     },
   },
   {
@@ -42,7 +42,7 @@ const rows = [
       enabled: true,
       enablePreview: true,
       enableConfigurator: true,
-      description: "This is a description",
+      description: "This is a description 4",
     },
   },
   {
@@ -53,7 +53,7 @@ const rows = [
       enabled: true,
       enablePreview: true,
       enableConfigurator: true,
-      description: "This is a description",
+      description: "This is a description 5",
     },
   },
 ];
@@ -66,10 +66,10 @@ const TableComponents = () => {
   return (
     <Table style={{ gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr 1fr" }}>
       <Row header>
-        <HeaderCell>
+        <HeaderCell sortKey="id">
           <p>ID</p>
         </HeaderCell>
-        <HeaderCell>
+        <HeaderCell sortKey="layoutName">
           <p>Type Name</p>
         </HeaderCell>
         <HeaderCell>
@@ -81,7 +81,7 @@ const TableComponents = () => {
         <HeaderCell>
           <p>Enable Configurator</p>
         </HeaderCell>
-        <HeaderCell>
+        <HeaderCell sortKey="description">
           <p>Description</p>
         </HeaderCell>
       </Row>
@@ -89,7 +89,12 @@ const TableComponents = () => {
       <TableBody>
         {rows.map((row, i) => {
           return (
-            <Row key={i} handleClick={() => onRowClicked(row)}>
+            <Row
+              sortObject={row.data}
+              key={i}
+              handleClick={() => onRowClicked(row)}
+              href={`https://www.google.com/search?q=${row.data.layoutName}`}
+            >
               <RowCell>
                 <p>{row.key}</p>
               </RowCell>

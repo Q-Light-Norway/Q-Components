@@ -8,6 +8,8 @@ interface RowInterface extends CommonProps {
   handleClick?: (e: MouseEvent<HTMLDivElement>) => void;
   header?: boolean;
   secondary?: boolean;
+  href?: string;
+  sortObject?: Record<string, any>;
 }
 
 const Row = ({
@@ -15,6 +17,7 @@ const Row = ({
   handleClick,
   header,
   secondary,
+  sortObject,
   ...restProps
 }: RowInterface) => {
   const getClassName = () => {

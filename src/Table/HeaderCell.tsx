@@ -22,14 +22,12 @@ const RowCell = ({
   overrideClassName,
   sortKey,
   centered,
-  noSort,
   ...restProps
 }: RowCellInterface) => {
   const { sort, setSortKey, toggleSort } = useContext(TableContext);
   const [isHovered, setIsHovered] = useState(false);
 
   const handleClick = () => {
-    if (noSort) return;
     if (sort.key !== sortKey) setSortKey(sortKey);
     if (sort.key === sortKey) {
       toggleSort();
@@ -52,19 +50,19 @@ const RowCell = ({
     >
       {children}
 
-      {!noSort && isHovered && sort.key !== sortKey && (
-        <ArrowsDownUp size={16} weight="light" />
+      {sortKey && (
+        <>
+          {isHovered && sort.key !== sortKey && (
+            <ArrowsDownUp size={16} weight="light" />
+          )}
+          {sort.key === sortKey && sort.direction === SortDirections.DESC && (
+            <ArrowUp size={16} weight="light" />
+          )}
+          {sort.key === sortKey && sort.direction === SortDirections.ASC && (
+            <ArrowDown size={16} weight="light" />
+          )}
+        </>
       )}
-      {!noSort &&
-        sort.key === sortKey &&
-        sort.direction === SortDirections.DESC && (
-          <ArrowUp size={16} weight="light" />
-        )}
-      {!noSort &&
-        sort.key === sortKey &&
-        sort.direction === SortDirections.ASC && (
-          <ArrowDown size={16} weight="light" />
-        )}
     </th>
   );
 };
